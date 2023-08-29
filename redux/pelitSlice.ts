@@ -3,7 +3,7 @@ import { Ottelulistaus } from '../types';
 
 export const haePelit = createAsyncThunk("pelit/haePelit", async () => {
 
-    const url = process.env.API_URL!;
+    const url: string = process.env.API_URL!;
 
     const yhteys = await fetch(url);
   
