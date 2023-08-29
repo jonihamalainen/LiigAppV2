@@ -3,20 +3,20 @@ import { Ottelulistaus } from '../types';
 
 export const haePelit = createAsyncThunk("pelit/haePelit", async () => {
 
-    const apiUrl: string = process.env.EXPO_PUBLIC_LIIGA_API_URl!;
+    const url = process.env.API_URL!;
 
-    const yhteys = await fetch(apiUrl);
+    const yhteys = await fetch(url);
   
     return await yhteys.json();
   
   });
 
-  const pelit: Ottelulistaus[] = [];
+  const peliData: Ottelulistaus[] = [];
 
   export const pelitSlice = createSlice({
     name: "Pelilista",
     initialState:{
-        pelit: [...pelit],
+        peliData: [...peliData],
         loading:false,
         error: false
     },
@@ -29,7 +29,7 @@ export const haePelit = createAsyncThunk("pelit/haePelit", async () => {
             state.loading = true;
         })
             .addCase(haePelit.fulfilled, (state, action) => {
-            state.pelit = action.payload;
+            state.peliData = action.payload;
             state.loading = false;
         })
             .addCase(haePelit.rejected, (state) => {
