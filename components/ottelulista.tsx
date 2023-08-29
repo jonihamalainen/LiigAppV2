@@ -7,26 +7,24 @@ interface Props {
   ottelu: Ottelulistaus;
 }
 
-const StyledText = styled(Text);
-
 const StyledView = styled(View);
 
 function OtteluLista({ ottelu }: Props): React.ReactElement {
-
-    const startString: string = convertTime(ottelu.start)
+  const startString: string = convertTime(ottelu.start);
 
   return (
-    <StyledView className="flex items-center justify-center mb-5 bg-black rounded-lg p-2">
-        <StyledText className="text-2xl text-white">
-          {ottelu.homeTeam.teamName} - {ottelu.awayTeam.teamName}
-        </StyledText>
-        <StyledText className="text-xl text-white">
-          {ottelu.homeTeam.goals}   -   {ottelu.awayTeam.goals}
-        </StyledText>
-        {!ottelu.started
-        ? <StyledText className="text-xl text-white">{startString}</StyledText>
-        : <StyledText>Ottelu on käynnissä</StyledText>
-        }
+    <StyledView className="flex items-center justify-center mb-5 bg- rounded-lg p-4 shadow-md bg-white w-screen">
+      <Text className="text-lg font-bold">
+        {ottelu.homeTeam.teamName} - {ottelu.awayTeam.teamName}
+      </Text>
+      <Text className="text-sm text-gray-600 mb-2">
+      {ottelu.homeTeam.goals} - {ottelu.awayTeam.goals}
+      </Text>
+      {!ottelu.started ? (
+        <Text className="text-xl text-bold">{startString}</Text>
+      ) : (
+        <Text>Ottelu on käynnissä</Text>
+      )}
     </StyledView>
   );
 }

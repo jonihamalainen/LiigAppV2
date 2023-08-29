@@ -12,11 +12,12 @@ export default function Layout() {
         headerStyle: {
           backgroundColor: 'grey',
         },
-        title: "LiigApp",
+        title: "LiigAppV2",
         headerTintColor: '#fff',
         headerTitleStyle: {
           fontWeight: 'bold',
         },
+        headerTitleAlign: 'center',
       }}
     />
     </Provider>
