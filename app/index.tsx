@@ -1,17 +1,19 @@
-import { View, Text, FlatList } from "react-native";
+import { View, FlatList, Text } from "react-native";
 import { AppDispatch, RootState } from "../redux/store";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { haePelit } from "../redux/pelitSlice";
 import { Ottelulistaus } from "../types";
 import OtteluLista from "../components/ottelulista";
 import { styled } from "nativewind";
-
-const StyledText = styled(Text)
+import { ActivityIndicator } from "react-native-paper";
+import CustomDialog from "../components/dialog";
 
 const StyledView = styled(View);
+const StyledText= styled(Text);
 
 export default function Page(): React.ReactElement {
+
   const dispatch: AppDispatch = useDispatch();
 
   const pelit: Ottelulistaus[] = useSelector(
@@ -22,7 +24,12 @@ export default function Page(): React.ReactElement {
     (state: RootState) => state.pelit.loading
   );
 
+  const error: boolean = useSelector(
+    (state: RootState) => state.pelit.error
+  );
+
   const haettu: React.MutableRefObject<boolean> = useRef<boolean>(false);
+
 
   useEffect(() => {
     if (!haettu.current) {
@@ -35,8 +42,9 @@ export default function Page(): React.ReactElement {
   }, [dispatch]);
 
   return (
-    <StyledView className="flex-1 items-center justify-center my-6 w-max">
-      {!loading ? (
+    <StyledView className="flex-1 items-center justify-center w-max">
+      {!error
+      ? !loading ? (
         <>
           <FlatList
             data={pelit}
@@ -47,9 +55,12 @@ export default function Page(): React.ReactElement {
         </>
       ) : (
         <>
-          <StyledText>Ladataan</StyledText>
+          <ActivityIndicator animating={true} size={"large"} />
         </>
-      )}
+      )
+      : <><StyledText>Hae uudestaan</StyledText><CustomDialog title="Virhe" viesti="Pelien haku epäonnistui, tarkista verkkoyhteys ja yritä uudestaan" /></>
+      }
+      
     </StyledView>
   );
 }
