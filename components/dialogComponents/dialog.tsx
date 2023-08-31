@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Button, Dialog, Portal, Text } from "react-native-paper";
 
-interface ErrorDialogProps {
+interface Props {
   title: string;
   viesti: string;
 }
 
-function CustomDialog({title, viesti}: ErrorDialogProps): React.ReactElement {
+function CustomDialog({title, viesti}: Props): React.ReactElement {
   const [visible, setVisible] = useState(true);
   const hideDialog = () => setVisible(false);
   return (

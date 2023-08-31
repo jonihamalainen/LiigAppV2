@@ -60,6 +60,7 @@ export enum TeamName {
 }
 export enum FinishedType {
     ActiveOrNotStarted = "ACTIVE_OR_NOT_STARTED",
+    EndedDuringRegularGameTime= "ENDED_DURING_REGULAR_GAME_TIME"
 }
 
 export enum Serie {
