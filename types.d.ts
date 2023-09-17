@@ -1,22 +1,29 @@
 export interface Ottelulistaus {
-    id:             number;
-    season:         number;
-    start:          Date;
-    homeTeam:       Team;
-    awayTeam:       Team;
-    finishedType:   FinishedType;
-    started:        boolean;
-    ended:          boolean;
-    buyTicketsUrl?: string;
-    stale:          boolean;
-    serie:          Serie;
+    id:               number;
+    season:           number;
+    start:            Date;
+    end?:             Date;
+    homeTeam:         HomeTeam;
+    awayTeam:         AwayTeam;
+    finishedType:     FinishedType;
+    started:          boolean;
+    ended:            boolean;
+    gameTime?:        number;
+    spectators?:      number;
+    cacheUpdateDate?: Date;
+    stale:            boolean;
+    serie:            Serie;
+    buyTicketsUrl?:   string;
+    gamblingEvent?:   GamblingEvent;
 }
-export interface Team {
+
+export interface AwayTeam {
     teamId:               TeamID;
     teamPlaceholder:      null;
     teamName:             TeamName;
     goals:                number;
     timeOut:              null;
+    goalEvents?:          GoalEvent[];
     powerplayInstances:   number;
     powerplayGoals:       number;
     shortHandedInstances: number;
@@ -24,6 +31,26 @@ export interface Team {
     ranking:              null;
     gameStartDateTime:    Date;
 }
+
+export interface GoalEvent {
+    scorerPlayerId:       number;
+    logTime:              Date;
+    winningGoal:          boolean;
+    gameTime:             number;
+    period:               number;
+    eventId:              number;
+    goalTypes:            string[];
+    assistantPlayerIds:   number[];
+    plusPlayerIds:        null | string;
+    minusPlayerIds:       null | string;
+    homeTeamScore:        number;
+    awayTeamScore:        number;
+    assistsSoFarInSeason: { [key: string]: number } | null;
+    goalsSoFarInSeason:   number;
+    videoClipUrl:         null | string;
+    videoThumbnailUrl:    null | string;
+}
+
 export enum TeamID {
     The168761288Hifk = "168761288:hifk",
     The219244634Jyp = "219244634:jyp",
@@ -41,6 +68,7 @@ export enum TeamID {
     The933686567Saipa = "933686567:saipa",
     The951626834Ilves = "951626834:ilves",
 }
+
 export enum TeamName {
     Hifk = "HIFK",
     Hpk = "HPK",
@@ -58,9 +86,34 @@ export enum TeamName {
     Tps = "TPS",
     Ässät = "Ässät",
 }
+
 export enum FinishedType {
     ActiveOrNotStarted = "ACTIVE_OR_NOT_STARTED",
-    EndedDuringRegularGameTime= "ENDED_DURING_REGULAR_GAME_TIME"
+    EndedDuringExtendedGameTime = "ENDED_DURING_EXTENDED_GAME_TIME",
+    EndedDuringRegularGameTime = "ENDED_DURING_REGULAR_GAME_TIME",
+    EndedDuringWinningShotCompetition = "ENDED_DURING_WINNING_SHOT_COMPETITION",
+}
+
+export interface GamblingEvent {
+    homeTeamOdds: number;
+    awayTeamOdds: number;
+    tieOdds:      number;
+    url:          string;
+}
+
+export interface HomeTeam {
+    teamId:               TeamID;
+    teamPlaceholder:      null;
+    teamName:             TeamName;
+    goals:                number;
+    timeOut:              null;
+    goalEvents?:          GoalEvent[];
+    powerplayInstances:   number;
+    powerplayGoals:       number;
+    shortHandedInstances: number;
+    shortHandedGoals:     number;
+    ranking:              null;
+    gameStartDateTime:    Date;
 }
 
 export enum Serie {
