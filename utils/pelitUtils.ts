@@ -15,3 +15,4 @@ export const paivanPelit = (peliLista: Ottelulistaus[], paiva: Date): Ottelulist
 
     return paivanPelit;
 }
+

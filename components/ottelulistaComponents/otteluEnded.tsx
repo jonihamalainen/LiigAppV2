@@ -33,8 +33,8 @@ function OtteluEnded({ ottelu }: Props): React.ReactElement {
       )}
       <StyledText className="text-lg text-black">Ottelu päättynyt</StyledText>
     </StyledView>
-    <StyledView className="flex flex-col items-center justify-center">
-    <StyledText className="text-l font-bold">Yleisömäärä:</StyledText>
+    <StyledView className="flex flex-col items-center justify-center border-l-2 border-white p-1">
+    <StyledText className="text-l font-bold ">Yleisömäärä:</StyledText>
       {ottelu.spectators
       ? <StyledText>{ottelu.spectators}</StyledText>
       : <StyledText>Ei ilmoitettu</StyledText>
