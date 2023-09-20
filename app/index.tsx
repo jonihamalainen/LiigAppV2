@@ -10,7 +10,9 @@ import { ActivityIndicator } from "react-native-paper";
 import CustomDialog from "../components/dialogComponents/dialog";
 import { Stack } from "expo-router";
 import CustomIcon from "../components/headerComponents/customIcon";
-import DateTimePicker, { DateTimePickerEvent } from "@react-native-community/datetimepicker";
+import DateTimePicker, {
+  DateTimePickerEvent,
+} from "@react-native-community/datetimepicker";
 import { paivanPelit } from "../utils/pelitUtils";
 
 const StyledView = styled(View);
@@ -21,7 +23,10 @@ export default function Page(): React.ReactElement {
 
   const [show, setShow] = useState(false);
 
-  const onChange = (event: DateTimePickerEvent, selectedDate: Date | undefined) => {
+  const onChange = (
+    event: DateTimePickerEvent,
+    selectedDate: Date | undefined
+  ) => {
     const currentDate: Date | undefined = selectedDate;
     if (currentDate) {
       setShow(false);
@@ -47,7 +52,7 @@ export default function Page(): React.ReactElement {
 
   const haettu: React.MutableRefObject<boolean> = useRef<boolean>(false);
 
-  const paivaPelit: Ottelulistaus[] = paivanPelit(pelit, date)
+  const paivaPelit: Ottelulistaus[] = paivanPelit(pelit, date);
 
   useEffect(() => {
     if (!haettu.current) {
@@ -60,11 +65,17 @@ export default function Page(): React.ReactElement {
   }, [dispatch]);
 
   return (
-    <StyledView className="flex-1 items-center justify-center w-max">
+    <StyledView
+      className="flex-1 items-center justify-center w-max"
+      style={{ backgroundColor: "#087CA7" }}
+    >
       <Stack.Screen
         options={{
           headerLeft: (props) => (
-            <CustomIcon iconType="calendar" onIconPress={showDatepicker} />
+            <CustomIcon
+              iconType="calendar"
+              onIconPress={showDatepicker}
+            />
           ),
         }}
       />
@@ -79,22 +90,29 @@ export default function Page(): React.ReactElement {
       )}
       {!error ? (
         !loading ? (
-          paivaPelit.length > 0?(
+          paivaPelit.length > 0 ? (
             <>
-            <StyledText className="text-xl mt-1">{date.toLocaleDateString('fi-FI')} ottelut</StyledText>
-            <FlatList
-              data={paivaPelit}
-              renderItem={({ item }) => <OtteluLista ottelu={item} />}
-              keyExtractor={(item) => item.id.toString()}
-              initialNumToRender={10}
-            />
-          </>
-          ): (
-            <StyledText className="text-xl">{date.toLocaleDateString('fi-FI')} ei otteluita</StyledText>
+              <StyledText className="text-xl mt-1">
+                {date.toLocaleDateString("fi-FI")} ottelut
+              </StyledText>
+              <FlatList
+                data={paivaPelit}
+                renderItem={({ item }) => <OtteluLista ottelu={item} />}
+                keyExtractor={(item) => item.id.toString()}
+                initialNumToRender={10}
+              />
+            </>
+          ) : (
+            <StyledText className="text-xl">
+              {date.toLocaleDateString("fi-FI")} ei otteluita
+            </StyledText>
           )
         ) : (
           <>
-            <ActivityIndicator animating={true} size={"large"} />
+            <ActivityIndicator
+              animating={true}
+              size={"large"}
+            />
           </>
         )
       ) : (

@@ -3,7 +3,7 @@ import { Stack } from "expo-router";
 import "../global.css";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
-import {  PaperProvider } from "react-native-paper";
+import { PaperProvider } from "react-native-paper";
 
 export default function Layout() {
   return (
@@ -12,7 +12,7 @@ export default function Layout() {
         <Stack
           screenOptions={{
             headerStyle: {
-              backgroundColor: "grey",
+              backgroundColor: "#004385",
             },
             title: "LiigAppV2",
             headerTintColor: "#fff",

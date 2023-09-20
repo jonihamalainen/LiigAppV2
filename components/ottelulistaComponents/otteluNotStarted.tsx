@@ -22,17 +22,18 @@ function OtteluNotStarted({ ottelu }: Props): React.ReactElement {
         </StyledText>
         <StyledText className=" text-lg text-bold">{startString}</StyledText>
       </StyledView>
-      <StyledView className="flex flex-col items-center justify-center border-l-2 border-white p-1 w-2/4">
-        {lippuString
-        ? <Button
-        className="w-full p-1 ml-1"
-          mode="contained"
-          onPress={() => Linking.openURL(lippuString)}
-        >
-          Osta liput!
-        </Button>
-        : null
-        }
+      <StyledView className="flex flex-col items-center justify-center border-l-2 border-black p-1 w-2/4">
+        {lippuString ? (
+          <Button
+            icon="ticket-outline"
+            className="w-full p-1 ml-1"
+            style={{ backgroundColor: "#004385" }}
+            mode="contained"
+            onPress={() => Linking.openURL(lippuString)}
+          >
+            Osta liput!
+          </Button>
+        ) : null}
       </StyledView>
     </StyledView>
   );

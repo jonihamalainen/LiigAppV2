@@ -1,19 +1,19 @@
 import { IconButton } from "react-native-paper";
 
-interface Props{
+interface Props {
   iconType: string;
   onIconPress: () => void;
 }
 
-function CustomIcon({iconType, onIconPress}: Props): React.ReactElement {
-    return (
-      <IconButton
-        icon={iconType}
-        size={30}
-        onPress={onIconPress}
-        iconColor="black"
-      />
-    );
-  }
+function CustomIcon({ iconType, onIconPress }: Props): React.ReactElement {
+  return (
+    <IconButton
+      icon={iconType}
+      size={30}
+      onPress={onIconPress}
+      iconColor="white"
+    />
+  );
+}
 
-  export default CustomIcon;
+export default CustomIcon;
