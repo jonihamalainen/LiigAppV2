@@ -27,7 +27,7 @@ function OtteluNotStarted({ ottelu }: Props): React.ReactElement {
           <Button
             icon="ticket-outline"
             className="w-full p-1 ml-1"
-            style={{ backgroundColor: "#004385" }}
+            style={{ backgroundColor: "#2f2f2f" }}
             mode="contained"
             onPress={() => Linking.openURL(lippuString)}
           >

@@ -26,7 +26,7 @@ function OtteluLista({ ottelu }: Props): React.ReactElement {
   return (
     <StyledView
       className="flex mt-5 bg-slate-400 rounded-lg p-4 shadow-mdw-screen w-screen border-2"
-      style={{ backgroundColor: "#05B2DC" }}
+      style={{ backgroundColor: "#ffcb74" }}
     >
       {componentToRender}
     </StyledView>

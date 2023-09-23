@@ -12,7 +12,7 @@ export default function Layout() {
         <Stack
           screenOptions={{
             headerStyle: {
-              backgroundColor: "#004385",
+              backgroundColor: "#111111",
             },
             title: "LiigAppV2",
             headerTintColor: "#fff",

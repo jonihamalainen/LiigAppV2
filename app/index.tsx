@@ -67,7 +67,7 @@ export default function Page(): React.ReactElement {
   return (
     <StyledView
       className="flex-1 items-center justify-center w-max"
-      style={{ backgroundColor: "#087CA7" }}
+      style={{ backgroundColor: "#2f2f2f" }}
     >
       <Stack.Screen
         options={{
@@ -92,7 +92,7 @@ export default function Page(): React.ReactElement {
         !loading ? (
           paivaPelit.length > 0 ? (
             <>
-              <StyledText className="text-xl mt-1">
+              <StyledText className="text-xl mt-1 text-white">
                 {date.toLocaleDateString("fi-FI")} ottelut
               </StyledText>
               <FlatList
