@@ -4,11 +4,13 @@ import "../global.css";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
 import { PaperProvider } from "react-native-paper";
+import { StatusBar } from "expo-status-bar";
 
 export default function Layout() {
   return (
     <Provider store={store}>
       <PaperProvider>
+        <StatusBar style="light" />
         <Stack
           screenOptions={{
             headerStyle: {

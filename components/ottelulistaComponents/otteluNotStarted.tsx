@@ -31,14 +31,16 @@ function OtteluNotStarted({ ottelu }: Props): React.ReactElement {
         <StyledView>
           {bettingString && (
             <>
-              <StyledText className="text-lg font-bold">Kertoimet:</StyledText>
-              <StyledText className=" text-lg">
+              <StyledText className="text-lg font-bold ml-1">
+                Kertoimet:
+              </StyledText>
+              <StyledText className=" text-lg ml-1">
                 1: {oddsConvert(ottelu.gamblingEvent?.homeTeamOdds)}
               </StyledText>
-              <StyledText className=" text-lg">
+              <StyledText className=" text-lg ml-1">
                 X: {oddsConvert(ottelu.gamblingEvent?.tieOdds)}
               </StyledText>
-              <StyledText className=" text-lg">
+              <StyledText className=" text-lg ml-1">
                 2: {oddsConvert(ottelu.gamblingEvent?.awayTeamOdds)}
               </StyledText>
               <Button
