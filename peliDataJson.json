@@ -4661,6 +4661,12 @@
     "started": false,
     "ended": false,
     "buyTicketsUrl": "https://www.ticketmaster.fi/artist/jyp-lippuja/1169054",
+    "gamblingEvent": {
+      "homeTeamOdds": 185,
+      "awayTeamOdds": 350,
+      "tieOdds": 425,
+      "url": "https://www.veikkaus.fi/fi/vedonlyonti/pitkaveto?t=3-1-1&kohde=1-b_29365405"
+    },
     "stale": false,
     "serie": "RUNKOSARJA"
   },

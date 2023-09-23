@@ -3,6 +3,14 @@ import { Ottelulistaus } from "../types";
 import peliDataJson from "../peliDataJson.json";
 
 export const haePelit = createAsyncThunk("pelit/haePelit", async () => {
+  /**
+     * const url: string = process.env.EXPO_PUBLIC_GAMES_API_URL!;
+
+    const yhteys = await fetch(url);
+  
+    return await yhteys.json();
+    */
+
   const jsonString: string = JSON.stringify(peliDataJson);
 
   const parse = JSON.parse(jsonString);
