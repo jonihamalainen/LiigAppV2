@@ -1,19 +1,19 @@
 import { View, FlatList, Text } from "react-native";
-import { AppDispatch, RootState } from "../redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
-import { haePelit } from "../redux/pelitSlice";
-import { Ottelulistaus } from "../types";
-import OtteluLista from "../components/ottelulistaComponents/ottelulista";
 import { styled } from "nativewind";
 import { ActivityIndicator } from "react-native-paper";
-import CustomDialog from "../components/dialogComponents/dialog";
 import { Stack } from "expo-router";
-import CustomIcon from "../components/headerComponents/customIcon";
 import DateTimePicker, {
   DateTimePickerEvent,
 } from "@react-native-community/datetimepicker";
+import { AppDispatch, RootState } from "../redux/store";
+import { Ottelulistaus } from "../types";
 import { paivanPelit } from "../utils/pelitUtils";
+import { haePelit } from "../redux/pelitSlice";
+import CustomIcon from "../components/headerComponents/customIcon";
+import OtteluLista from "../components/ottelulistaComponents/ottelulista";
+import CustomDialog from "../components/dialogComponents/dialog";
 
 const StyledView = styled(View);
 const StyledText = styled(Text);
@@ -103,7 +103,7 @@ export default function Page(): React.ReactElement {
               />
             </>
           ) : (
-            <StyledText className="text-xl">
+            <StyledText className="text-xl text-white">
               {date.toLocaleDateString("fi-FI")} ei otteluita
             </StyledText>
           )

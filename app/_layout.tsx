@@ -9,8 +9,8 @@ import { StatusBar } from "expo-status-bar";
 export default function Layout() {
   return (
     <Provider store={store}>
+      <StatusBar backgroundColor="#ffcb74" />
       <PaperProvider>
-        <StatusBar style="light" />
         <Stack
           screenOptions={{
             headerStyle: {

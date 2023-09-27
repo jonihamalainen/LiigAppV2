@@ -25,7 +25,9 @@ function OtteluNotStarted({ ottelu }: Props): React.ReactElement {
           {ottelu.homeTeam.teamName} - {ottelu.awayTeam.teamName}
         </StyledText>
         <StyledText className="text-lg">{peliPaikka}</StyledText>
-        <StyledText className=" text-lg text-bold">{startString}</StyledText>
+        <StyledText className=" text-lg text-bold">
+          Ottelu alkaa klo: {startString}
+        </StyledText>
       </StyledView>
       <StyledView className="flex flex-col items-center justify-center border-l-2 border-black p-1 w-2/4">
         <StyledView>

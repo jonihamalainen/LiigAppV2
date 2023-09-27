@@ -9,7 +9,6 @@ import OtteluNotStarted from "./otteluNotStarted";
 interface Props {
   ottelu: Ottelulistaus;
 }
-
 const StyledView = styled(View);
 
 function OtteluLista({ ottelu }: Props): React.ReactElement {

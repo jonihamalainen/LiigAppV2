@@ -1,5 +1,4 @@
 import { IconButton } from "react-native-paper";
-
 interface Props {
   iconType: string;
   onIconPress: () => void;
