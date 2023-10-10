@@ -5,6 +5,7 @@ import { convertTime } from "../../utils/timeUtils";
 import { Button } from "react-native-paper";
 import { oddsConvert } from "../../utils/pelitUtils";
 import { Pelipaikka } from "../../enums";
+import { Link } from "expo-router";
 
 interface Props {
   ottelu: Ottelulistaus;

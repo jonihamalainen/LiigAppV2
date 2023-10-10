@@ -5,6 +5,7 @@ import { styled } from "nativewind";
 import OtteluActive from "./otteluActive";
 import OtteluEnded from "./otteluEnded";
 import OtteluNotStarted from "./otteluNotStarted";
+import { Link } from "expo-router";
 
 interface Props {
   ottelu: Ottelulistaus;
@@ -23,12 +24,13 @@ function OtteluLista({ ottelu }: Props): React.ReactElement {
   }
 
   return (
-    <StyledView
-      className="flex mt-5 bg-slate-400 rounded-lg p-4 shadow-mdw-screen w-screen border-2"
+    <Link
+      href={`/ottelu/${ottelu.id}`}
+      className="flex mt-5 bg-slate-400 rounded-lg shadow-mdw-screen w-screen border-2"
       style={{ backgroundColor: "#ffcb74" }}
     >
-      {componentToRender}
-    </StyledView>
+      <StyledView className="flex p-4 w-screen">{componentToRender}</StyledView>
+    </Link>
   );
 }
 
