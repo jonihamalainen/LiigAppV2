@@ -6,6 +6,9 @@ import OtteluActive from "./otteluActive";
 import OtteluEnded from "./otteluEnded";
 import OtteluNotStarted from "./otteluNotStarted";
 import { Link } from "expo-router";
+import { AppDispatch } from "../../redux/store";
+import { useDispatch } from "react-redux";
+import { haePeli } from "../../redux/yksiPeliSlice";
 
 interface Props {
   ottelu: Ottelulistaus;
@@ -13,6 +16,11 @@ interface Props {
 const StyledView = styled(View);
 
 function OtteluLista({ ottelu }: Props): React.ReactElement {
+  const dispatch: AppDispatch = useDispatch();
+
+  const peliHaku = (id: number) => {
+    dispatch(haePeli(id.toString()));
+  };
   let componentToRender: React.ReactElement | null = null;
 
   if (!ottelu.started) {
@@ -28,6 +36,7 @@ function OtteluLista({ ottelu }: Props): React.ReactElement {
       href={`/ottelu/${ottelu.id}`}
       className="flex mt-5 bg-slate-400 rounded-lg shadow-mdw-screen w-screen border-2"
       style={{ backgroundColor: "#ffcb74" }}
+      onPress={() => peliHaku(ottelu.id)}
     >
       <StyledView className="flex p-4 w-screen">{componentToRender}</StyledView>
     </Link>

@@ -11,3 +11,14 @@ export const convertTime = (time: Date): string => {
 
   return outputDateString;
 };
+
+export const checkYear = (): number => {
+  const currentDate: Date = new Date();
+  const currentYear: number = currentDate.getFullYear();
+  const currentMonth: number = currentDate.getMonth();
+  if (currentMonth >= 0 && currentMonth <= 5) {
+    return currentYear + 1;
+  } else {
+    return currentYear;
+  }
+};
