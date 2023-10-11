@@ -17,8 +17,8 @@ export const checkYear = (): number => {
   const currentYear: number = currentDate.getFullYear();
   const currentMonth: number = currentDate.getMonth();
   if (currentMonth >= 0 && currentMonth <= 5) {
-    return currentYear + 1;
-  } else {
     return currentYear;
+  } else {
+    return currentYear + 1;
   }
 };

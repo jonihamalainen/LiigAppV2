@@ -1,4 +1,4 @@
-import { Ottelulistaus } from "../types";
+import { Ottelulistaus, Peli } from "../types";
 
 export const paivanPelit = (
   peliLista: Ottelulistaus[],
@@ -57,4 +57,13 @@ export const pelinEra = (ottelu: Ottelulistaus): string => {
     }
   }
   return eraString;
+};
+
+export const yksiPeliJson = (peli: string): Peli | null => {
+  if (peli.length > 0) {
+    const peliJson: Peli = JSON.parse(peli);
+    return peliJson;
+  } else {
+    return null;
+  }
 };
