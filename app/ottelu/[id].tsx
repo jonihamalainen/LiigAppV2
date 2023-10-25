@@ -9,6 +9,8 @@ import CustomDialog from "../../components/dialogComponents/dialog";
 import { yksiPeliJson } from "../../utils/pelitUtils";
 import { haePeli } from "../../redux/yksiPeliSlice";
 import { useLocalSearchParams } from "expo-router";
+import YksiPeliNotStarted from "../../components/yksiPeliComponents/yksiPeliNotStarted";
+import YksiPeliActive from "../../components/yksiPeliComponents/yksiPeliActive";
 
 const StyledView = styled(View);
 const StyledText = styled(Text);
@@ -34,6 +36,16 @@ export default function Page(): React.ReactElement {
 
   const haettu: React.MutableRefObject<boolean> = useRef<boolean>(false);
 
+  let componentToRender: React.ReactElement | null = null;
+
+  if (!peliData?.game.started) {
+    componentToRender = <YksiPeliNotStarted peliData={peliData} />;
+  } else if (peliData.game.started && !peliData.game.ended) {
+    componentToRender = <YksiPeliActive peliData={peliData} />;
+  } else if (peliData.game.ended) {
+    null;
+  }
+
   useEffect(() => {
     if (!haettu.current) {
       if (gameId) {
@@ -53,7 +65,9 @@ export default function Page(): React.ReactElement {
       {!error ? (
         !loading ? (
           <>
-            <StyledText className="text-white">{peliData?.game.id}</StyledText>
+            <StyledView className="flex p-4 w-screen">
+              {componentToRender}
+            </StyledView>
           </>
         ) : (
           <>

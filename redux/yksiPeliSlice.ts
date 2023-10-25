@@ -1,10 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { checkYear } from "../utils/timeUtils";
+import yksiPeli from "../yksiPeli.json";
 
 export const haePeli = createAsyncThunk(
   "peli/haePeli",
   async (id: string | string[]) => {
-    const url: string = process.env.EXPO_PUBLIC_GAMES_API_URL!;
+    /**  const url: string = process.env.EXPO_PUBLIC_GAMES_API_URL!;
     const vuosi: number = checkYear();
 
     const completeURL: string = `${url}${vuosi}/${id}`;
@@ -12,6 +13,11 @@ export const haePeli = createAsyncThunk(
     const yhteys: Response = await fetch(completeURL);
 
     return await yhteys.text();
+    */
+
+    const jsonString: string = JSON.stringify(yksiPeli);
+
+    return jsonString;
   }
 );
 

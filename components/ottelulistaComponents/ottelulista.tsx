@@ -6,8 +6,6 @@ import OtteluActive from "./otteluActive";
 import OtteluEnded from "./otteluEnded";
 import OtteluNotStarted from "./otteluNotStarted";
 import { Link } from "expo-router";
-import { AppDispatch } from "../../redux/store";
-import { useDispatch } from "react-redux";
 
 interface Props {
   ottelu: Ottelulistaus;
@@ -15,7 +13,6 @@ interface Props {
 const StyledView = styled(View);
 
 function OtteluLista({ ottelu }: Props): React.ReactElement {
-  const dispatch: AppDispatch = useDispatch();
   let componentToRender: React.ReactElement | null = null;
 
   if (!ottelu.started) {

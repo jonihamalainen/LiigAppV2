@@ -5,7 +5,6 @@ import { convertTime } from "../../utils/timeUtils";
 import { Button } from "react-native-paper";
 import { oddsConvert } from "../../utils/pelitUtils";
 import { Pelipaikka } from "../../enums";
-import { Link } from "expo-router";
 
 interface Props {
   ottelu: Ottelulistaus;
@@ -15,7 +14,7 @@ const StyledText = styled(Text);
 const StyledView = styled(View);
 
 function OtteluNotStarted({ ottelu }: Props): React.ReactElement {
-  const startString: string = convertTime(ottelu.start);
+  const startString: string | null = convertTime(ottelu.start);
   const lippuString: string | undefined = ottelu.buyTicketsUrl;
   const bettingString: string | undefined = ottelu.gamblingEvent?.url;
   const peliPaikka: string = Pelipaikka[ottelu.homeTeam.teamName];
